@@ -19,12 +19,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-$router->get('espressos',  ['uses' => 'EspressoController@showAllEspressos']);
+Route::get('espressos',  ['uses' => 'EspressoController@showAllEspressos']);
 
-$router->get('espressos/{id}', ['uses' => 'EspressoController@showOneEspresso']);
+Route::get('espressos/{id}', ['uses' => 'EspressoController@showOneEspresso']);
 
-$router->post('espressos', ['middleware' => 'auth:create:espresso', 'uses' => 'EspressoController@create']);
+Route::post('espressos', ['middleware' => 'auth:create:espresso', 'uses' => 'EspressoController@create']);
 
-$router->delete('espressos/{id}', ['uses' => 'EspressoController@delete']);
+Route::delete('espressos/{id}', ['uses' => 'EspressoController@delete']);
 
-$router->put('espressos/{id}', ['uses' => 'EspressoController@update']);
+Route::put('espressos/{id}', ['uses' => 'EspressoController@update']);
