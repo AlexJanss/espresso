@@ -18,3 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+$router->get('espressos',  ['uses' => 'EspressoController@showAllEspressos']);
+
+$router->get('espressos/{id}', ['uses' => 'EspressoController@showOneEspresso']);
+
+$router->post('espressos', ['middleware' => 'auth:create:espresso', 'uses' => 'EspressoController@create']);
+
+$router->delete('espressos/{id}', ['uses' => 'EspressoController@delete']);
+
+$router->put('espressos/{id}', ['uses' => 'EspressoController@update']);
